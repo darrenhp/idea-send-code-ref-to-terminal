@@ -9,9 +9,14 @@ editor selection to the selected session in IDEA's built-in Terminal.
 - With no selection, the caret's current line is used.
 - The reference is written without a newline, so it is not executed
   automatically.
+- Sending a code reference automatically switches focus to the Terminal.
 - Supports the Reworked Terminal available from IntelliJ IDEA 2025.3, with a
   Classic Terminal fallback.
-- The default shortcut is `Cmd+Shift+G` on macOS and `Ctrl+Shift+G` elsewhere.
+- Can be triggered from the Editor right-click menu (`Send Code Reference to Terminal`), or mapped to a custom shortcut in **Settings / Preferences | Keymap**.
+- **Toggle Terminal/Editor Focus** action:
+  - Switches focus to the Terminal when focus is in the Editor, and switches back to the Editor when focus is in the Terminal.
+  - Added to right-click context menus in both Editor (`EditorPopupMenu`) and Terminal (`Terminal.OutputContextMenu`, `Terminal.PromptContextMenu`, etc.).
+  - Can be mapped to any custom shortcut in **Settings / Preferences | Keymap** under `Toggle Terminal/Editor Focus`.
 
 ## Development
 

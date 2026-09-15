@@ -33,6 +33,7 @@ class SendCodeReferenceAction : AnAction(), DumbAware {
         val reworkedTerminal = ActiveTerminalResolver.resolveReworked(project)
         if (reworkedTerminal != null) {
             TerminalSender.send(reworkedTerminal, reference)
+            TerminalFocusHelper.focusTerminal(project)
             notify(project, "Sent $reference to Terminal", NotificationType.INFORMATION)
             return
         }
@@ -42,6 +43,7 @@ class SendCodeReferenceAction : AnAction(), DumbAware {
             return
         }
         TerminalSender.send(classicTerminal, reference)
+        TerminalFocusHelper.focusTerminal(project)
         notify(project, "Sent $reference to Terminal", NotificationType.INFORMATION)
     }
 

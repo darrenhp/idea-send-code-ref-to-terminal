@@ -8,14 +8,26 @@
 
     <notificationGroup id="Send Code Reference" displayType="BALLOON"/>
 
+    <extensions defaultExtensionNs="com.intellij">
+        <actionPromoter implementation="com.example.sendcoderef.ToggleTerminalEditorFocusActionPromoter"/>
+    </extensions>
+
     <actions>
         <action id="com.example.sendcoderef.SendCodeReferenceAction"
                 class="com.example.sendcoderef.SendCodeReferenceAction"
                 text="Send Code Reference to Terminal"
                 description="Send the selected code reference to the active IDEA Terminal">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta shift G"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift G"/>
+        </action>
+
+        <action id="com.example.sendcoderef.ToggleTerminalEditorFocusAction"
+                class="com.example.sendcoderef.ToggleTerminalEditorFocusAction"
+                text="Toggle Terminal/Editor Focus"
+                description="Toggle focus between the active editor and the terminal">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <add-to-group group-id="Terminal.OutputContextMenu" anchor="last"/>
+            <add-to-group group-id="Terminal.PromptContextMenu" anchor="last"/>
+            <add-to-group group-id="Terminal.ReworkedTerminalContextMenu" anchor="last"/>
         </action>
     </actions>
 </idea-plugin>
